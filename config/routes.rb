@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'potepan/tokushoho'
   get 'potepan/privacy_policy'
   namespace :potepan do
-    resources :products, only: [:show]
+    resources :products, only: [:show, :index]
   end
 end
 
