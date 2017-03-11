@@ -160,6 +160,7 @@
                 <div class="panel-body">
                   <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
                     <ul class="nav navbar-nav side-nav">
+                      <!--
                       <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#SHOES">SHOES<i class="fa fa-plus"></i></a>
                         <ul id="SHOES" class="collapse collapseItem">
@@ -184,6 +185,15 @@
                           <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>サブカテゴリー名 <span>(6)</span></a></li>
                         </ul>
                       </li>
+                      -->
+                      <% @prototypes.each do |prototype| %>
+                        <li>
+                          <a href="javascript:;" data-toggle="collapse" data-target="#CLOTHING"><%= prototype.name %><i class="fa fa-plus"></i></a>
+                          <ul id="CLOTHING" class="collapse collapseItem">
+                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>サブカテゴリー名 <span>(6)</span></a></li>
+                          </ul>
+                        </li>
+                      <% end %>
                     </ul>
                   </div>
                 </div>

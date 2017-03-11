@@ -7,5 +7,6 @@ class Potepan::ProductsController < ApplicationController
 
   def index
     @products = Spree::Product.all
+    @prototypes = Spree::Prototype.all
   end
 end
