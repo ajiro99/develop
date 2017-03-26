@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'potepan/index'
   get 'potepan/product_grid_left_sidebar'
   get 'potepan/product_list_left_sidebar'
-  get 'potepan/single_product'
+  # get 'potepan/single_product'
+  # get 'potepan/products/:id', to: 'single_products#show'
   get 'potepan/cart_page'
   get 'potepan/blog_left_sidebar'
   get 'potepan/blog_right_sidebar'
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
   get 'potepan/about_us'
   get 'potepan/tokushoho'
   get 'potepan/privacy_policy'
+  namespace :potepan do
+    resources :products, only: [:show, :index]
+  end
 end
 
 # == Route Map
