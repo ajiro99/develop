@@ -54,6 +54,9 @@ group :development do
   gem 'annotate'
   # testing
   gem 'rspec-rails', '~> 3.5'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

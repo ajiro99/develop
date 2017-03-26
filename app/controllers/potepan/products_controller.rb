@@ -6,7 +6,13 @@ class Potepan::ProductsController < ApplicationController
   end
 
   def index
-    @products = Spree::Product.all
+  	if params[:prototype_name].present?
+	    @products = Spree::Product.includes(:taxons).
+	    where("spree_taxons.name like ?", "%#{params[:prototype_name]}%").references(:taxons)
+    else
+    	@products = Spree::Product.all
+    end
     @prototypes = Spree::Prototype.all
+
   end
 end

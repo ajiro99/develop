@@ -164,10 +164,7 @@
                       -->
                       <% @prototypes.each do |prototype| %>
                         <li>
-                          <a href="javascript:;" data-toggle="collapse" data-target="#CLOTHING"><%= prototype.name %><i class="fa fa-plus"></i></a>
-                          <ul id="CLOTHING" class="collapse collapseItem">
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>サブカテゴリー名 <span>(6)</span></a></li>
-                          </ul>
+                          <%= link_to prototype.name, potepan_products_path(prototype_name: prototype.name) %>
                         </li>
                       <% end %>
                     </ul>
