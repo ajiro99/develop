@@ -21,7 +21,15 @@ Rails.application.routes.draw do
   get 'potepan/tokushoho'
   get 'potepan/privacy_policy'
   namespace :potepan do
-    resources :products, only: [:show, :index]
+    resources :products, only: [:show, :index] 
+
+    resources :orders, except: [:index, :new, :create, :destroy] do
+      post :populate, on: :collection
+    end
+
+    get '/cart', to: 'orders#edit', as: :cart
+    patch '/cart', to: 'orders#update', as: :update_cart
+    put '/cart/empty', to: 'orders#empty', as: :empty_cart
   end
 end
 

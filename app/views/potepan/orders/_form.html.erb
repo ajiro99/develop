@@ -1,0 +1,28 @@
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+<table class="table">
+  <thead>
+       <tr>
+         <th></th>
+         <th>商品名</th>
+         <th>価格</th>
+         <th>数</th>
+         <th>小計</th>
+       </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'line_item', collection: order_form.object.line_items, locals: {order_form: order_form} %>
+  </tbody>
+  <% if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any? %>
+    <tr class="cart-subtotal">
+      <td colspan="3" align='right'><h5><%= Spree.t(:cart_subtotal, :count => @order.line_items.sum(:quantity)) %></h5></th>
+      <td colspan><h5><%= order_form.object.display_item_total %></h5></td>
+      <td></td>
+    </tr>
+    <%= render "orders/adjustments" %>
+  <% end %>
+  <tr class="cart-total">
+    <td colspan="3" align='right'><h5><%= Spree.t(:total) %></h5></th>
+    <td colspan><h5><%= order_form.object.display_total %></h5></td>
+    <td></td>
+  </tr>
+</table>
